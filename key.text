@@ -1,0 +1,23 @@
+node --version --> v22.13.1
+
+npm --version --> 10.9.2
+
+npm init -y --> package.json
+
+npm install express , npm i -->node modules , package - lock.json
+
+npm i -g nodemon --> globali add (run to nodemon index.js) 
+
+npm install --save-dev nodemon --> devDevpendencies & (npm uninstall nodemon);
+
+npm i express --> create a repository
+
+npm i @angular/cli --> install 
+
+npm i - g json - server --> API create server 
+
+json-server --watch js.json --> API create 
+
+npm install express mongoose --> mongoose install
+
+npm i express mongoose path nodemon --> node_modules & package - lock.json

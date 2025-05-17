@@ -1,0 +1,25 @@
+{
+  "name": "node-express-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jigarunagar/Node-Express-Mongodb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jigarunagar/Node-Express-Mongodb/issues"
+  },
+  "homepage": "https://github.com/Jigarunagar/Node-Express-Mongodb#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0",
+    "node": "^20.19.2"
+  }
+}
