@@ -21,3 +21,7 @@ json-server --watch js.json --> API create
 npm install express mongoose --> mongoose install
 
 npm i express mongoose path nodemon --> node_modules & package - lock.json
+
+npm i dotenv ->
+
+npm install express ejs ->
