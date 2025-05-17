@@ -24,4 +24,4 @@ npm i express mongoose path nodemon --> node_modules & package - lock.json
 
 npm i dotenv ->
 
-npm install express ejs ->
+npm install ejs ->
