@@ -25,3 +25,46 @@ npm i express mongoose path nodemon --> node_modules & package - lock.json
 npm i dotenv ->
 
 npm install ejs ->
+
+
+//////////////////////////////////////////
+
+🧠 What is Node.js REPL?
+>>>>REPL stands for:
+
+Read – Read the user's input.
+
+Eval – Evaluate the input.
+
+Print – Print the result.
+
+Loop – Loop back and wait for the next input.
+
+It's like a playground for trying out Node.js code interactively.
+
+
+🌍 Node.js Global Objects List
+✅ Global Namespace Object
+    global – The actual global object in Node.js (like window in browsers)
+
+
+📦 Global Variables
+
+Name	Description
+__dirname	The directory name of the current module
+__filename	The full path of the current module
+exports	    Used to export functions/objects from a module
+module	    Refers to the current module
+require()	Used to import modules
+global	    Global namespace (like window in browsers)
+
+
+🧰 Timers (also available globally)
+
+Name	Description
+setTimeout()	    Calls a function after a delay
+clearTimeout()	    Cancels a timeout
+setInterval()	    Repeats a function with delay
+clearInterval()	    Cancels an interval
+setImmediate()	    Executes a callback after I/O events
+clearImmediate()	Cancels a setImmediate
