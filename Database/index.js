@@ -44,7 +44,7 @@ app.get("/info/:id", async (req, res) => {
 
 
 app.listen(4808, () => {
-  console.log(`server on port 4808`);
+  console.log(`http://localhost:4808`);
   dbConnect();
 });
 
