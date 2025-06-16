@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Edit Task</h1>
+        <form action="/edit/<%= task.id %>" method="POST" class="task-form">
+            <input type="text" name="task" value="<%= task.text %>" required>
+            <button type="submit">Update</button>
+        </form>
+        <div style="margin-top: 20px;">
+            <a href="/" style="color: #007bff;">⬅ Back to List</a>
+        </div>
+    </div>
+</body>
+
+</html>
