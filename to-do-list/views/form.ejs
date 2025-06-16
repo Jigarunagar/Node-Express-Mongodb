@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(216, 163, 82);
+        }
+
+        h1 {
+            text-align: center;
+            background-color: rgb(189, 28, 213);
+            color: white;
+            padding: 30px;
+        }
+
+        table,
+        td,
+        th {
+            margin-top: 100px;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        input {
+            padding: 10px ;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(189, 28, 213);
+            color: white;
+            border: none;
+            display: block;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is Form page</h1>
+    <form action="/insertdata" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="">Id :</label>
+                    <input type="number" name="userid" placeholder="Enter userid" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Name :</label>
+                    <input type="text" name="name" placeholder="Enter name" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Email :</label>
+                    <input type="email" name="email" placeholder="Enter email" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Password :</label>
+                    <input type="password" name="password" placeholder="Enter password" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <% student.map((data)=>{%>
+            <tr>
+                <td>
+                    <%= data.name %>
+                </td>
+                <td>
+                    <%= data.email %>
+                </td>
+                <td>
+                    <%= data.password %>
+                </td>
+                <td>
+                    <button>
+                        <a href="/editdata?id=<%= data.userid %>">Edit</a>
+                    </button>
+                </td> 
+                <td>
+                    <button>
+                        <a href="/deletedata?id=<%= data.userid %>">Delete</a>
+                    </button>
+                </td>
+            </tr>
+            <% })%>
+    </table>
+</body>
+
+</html>

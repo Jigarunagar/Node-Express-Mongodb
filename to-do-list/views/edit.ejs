@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(216, 163, 82);
+        }
+
+        h1 {
+            text-align: center;
+            background-color: rgb(189, 28, 213);
+            color: white;
+            padding: 30px;
+        }
+
+        table,
+        td,
+        th {
+            margin-top: 100px;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(189, 28, 213);
+            color: white;
+            border: none;
+            display: block;
+            margin: 5px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This is Edit page</h1>
+    <form action="/edituser" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="">Id :</label>
+                    <input type="number" name="editid" value="<%= editdata.userid %>" placeholder="Enter userid" id="" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Name :</label>
+                    <input type="text" name="name" value="<%= editdata.name %>" placeholder="Enter username" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Email :</label>
+                    <input type="email" name="email" value="<%= editdata.email %>" placeholder="Enter useremail" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="">Password :</label>
+                    <input type="password" name="password" value="<%= editdata.password %>" placeholder="Enter userpassword" id="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="update">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
