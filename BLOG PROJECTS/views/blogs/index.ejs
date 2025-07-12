@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+    }
+
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .blog-card h2 {
+      font-size: 22px;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .blog-card p {
+      color: #555;
+    }
+
+    .blog-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: white;
+      background: #007bff;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .blog-card a:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <%- include("../partials/header") %>
+    <h1>All Blogs</h1>
+    <a href="/blogs/new">Create New</a>
+    <% blogs.forEach(blog=> { %>
+      <div>
+        <h2>
+          <%= blog.title %>
+        </h2>
+        <img src="<%= blog.image %>" width="200">
+        <p>
+          <%= blog.body.substring(0, 100) %>...
+        </p>
+        <a href="/blogs/<%= blog._id %>">Read More</a>
+      </div>
+      <% }) %>
+        <%- include("../partials/footer") %>
+</body>
+
+</html>
