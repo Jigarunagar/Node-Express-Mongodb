@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Review App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    form {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      display: inline-block;
+      padding: 20px 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      width: 250px;
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #d1549f;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #bcbc7d;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Register</h2>
+  <form id="registerForm">
+    <input placeholder="Username" id="regUsername" /><br>
+    <input placeholder="Email" id="regEmail" /><br>
+    <input placeholder="Password" id="regPassword" type="password" /><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Login</h2>
+  <form id="loginForm">
+    <input placeholder="Email" id="logEmail" /><br>
+    <input placeholder="Password" id="logPassword" type="password" /><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <h2>Add Movie</h2>
+  <form id="movieForm">
+    <input placeholder="Title" id="title" /><br>
+    <input placeholder="Description" id="desc" /><br>
+    <input placeholder="Rating" id="rating" /><br>
+    <input placeholder="Review" id="review" /><br>
+    <button type="submit">Add Movie</button>
+  </form>
+
+  <script>
+    let token = "";
+    document.getElementById("registerForm").onsubmit = async function (e) {
+      e.preventDefault();
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: regUsername.value,
+          email: regEmail.value,
+          password: regPassword.value
+        }),
+      });
+      const data = await res.json();
+      alert("Registered!");
+    };
+
+    document.getElementById("loginForm").onsubmit = async function (e) {
+      e.preventDefault();
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: logEmail.value,
+          password: logPassword.value
+        }),
+      });
+      const data = await res.json();
+      token = data.token;
+      alert("Logged In!");
+    };
+
+    document.getElementById("movieForm").onsubmit = async function (e) {
+      e.preventDefault();
+      const res = await fetch("http://localhost:5000/api/movies", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": token
+        },
+        body: JSON.stringify({
+          title: title.value,
+          description: desc.value,
+          rating: rating.value,
+          review: review.value
+        }),
+      });
+      const data = await res.json();
+      alert("Movie added!");
+    };
+  </script>
+</body>
+
+</html>
