@@ -1,7 +1,14 @@
 import express from "express";
+import dotenv from "dotenv"
+dotenv.config();
 const app = express(); 
 
 
-app.listen(4048 , ()=>{
-    console.log("Server is running on port 4048");
+app.get("/" , (req, res) => {
+    res.send("Hello from server");
+});
+
+
+app.listen(process.env.PORT , ()=>{
+    console.log(`Server is running on port http://localhost:${process.env.PORT} `);
 })
