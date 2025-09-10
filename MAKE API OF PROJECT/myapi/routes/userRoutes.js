@@ -8,10 +8,10 @@ const {
   deleteUser,
 } = require("../controllers/userController");
 
-router.post("/", createUser);   // ➕ Create
-router.get("/", getUsers);      // 📄 Get All
-router.get("/:id", getUser);    // 📄 Get One
-router.put("/:id", updateUser); // ✏️ Update
-router.delete("/:id", deleteUser); // ❌ Delete
+router.post("/", createUser);   
+router.get("/", getUsers);      
+router.get("/:id", getUser);    
+router.put("/:id", updateUser); 
+router.delete("/:id", deleteUser);
 
 module.exports = router;
