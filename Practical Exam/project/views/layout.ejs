@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title + ' - ' : '' %>Modern Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <main>
+        <%- body %>
+    </main>
+
+    <script>
+        // Simple mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('mobile-open');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

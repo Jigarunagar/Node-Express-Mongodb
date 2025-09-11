@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles - Modern Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">All Articles</h1>
+            <p class="page-subtitle">Discover amazing stories from our community</p>
+        </div>
+
+        <% if (articles && articles.length > 0) { %>
+            <div class="article-grid">
+                <% articles.forEach(article => { %>
+                    <div class="card article-card">
+                        <h2 class="article-title">
+                            <a href="/articles/<%= article.id %>"><%= article.title %></a>
+                        </h2>
+                        <div class="article-meta">
+                            <span class="article-author">By <%= article.author_name %></span>
+                            <span><%= new Date(article.created_at).toLocaleDateString() %></span>
+                        </div>
+                        <div class="article-excerpt">
+                            <%= article.content.substring(0, 150) %><%= article.content.length > 150 ? '...' : '' %>
+                        </div>
+                        <a href="/articles/<%= article.id %>" class="btn btn-primary btn-sm">Read More</a>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="empty-state">
+                <div class="empty-state-icon">📚</div>
+                <h2 class="empty-state-title">No Articles Yet</h2>
+                <p class="empty-state-text">Be the first to share your thoughts with the community!</p>
+                <% if (user) { %>
+                    <a href="/articles/new" class="btn btn-primary">Write First Article</a>
+                <% } else { %>
+                    <a href="/auth/register" class="btn btn-primary">Join to Write</a>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
