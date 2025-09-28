@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Modern Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <div class="container">
+        <div class="empty-state">
+            <div class="empty-state-icon">⚠️</div>
+            <h1 class="empty-state-title">Oops! Something went wrong</h1>
+            <p class="empty-state-text"><%= message %></p>
+            <a href="/articles" class="btn btn-primary">Go Home</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/articles" class="logo">📝 Modern Blog</a>
+        
+        <ul class="nav-links">
+            <li><a href="/articles">All Articles</a></li>
+            <% if (user) { %>
+                <li><a href="/articles/my-articles">My Articles</a></li>
+                <li><a href="/articles/new">Write Article</a></li>
+            <% } %>
+        </ul>
+
+        <div class="nav-user">
+            <% if (user) { %>
+                <span class="user-info">Hello, <%= user.username %>!</span>
+                <form action="/auth/logout" method="POST" style="display: inline;">
+                    <button type="submit" class="btn-logout">Logout</button>
+                </form>
+            <% } else { %>
+                <a href="/auth/login" class="btn btn-outline">Login</a>
+                <a href="/auth/register" class="btn btn-primary">Sign Up</a>
+            <% } %>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Modern Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Join Our Community</h1>
+            <p class="page-subtitle">Create your account and start writing</p>
+        </div>
+
+        <div class="form-container">
+            <div class="card">
+                <% if (error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                <% } %>
+
+                <form action="/auth/register" method="POST">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username</label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            class="form-input" 
+                            required 
+                            placeholder="Choose a username"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            class="form-input" 
+                            required 
+                            placeholder="Create a password"
+                            minlength="6"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            class="form-input" 
+                            required 
+                            placeholder="Confirm your password"
+                            minlength="6"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <div style="text-align: center; margin-top: 1rem;">
+                    <p>Already have an account? <a href="/auth/login" style="color: var(--primary); text-decoration: none; font-weight: 500;">Sign in here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

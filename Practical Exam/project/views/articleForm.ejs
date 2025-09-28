@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= isEdit ? 'Edit' : 'New' %> Article - Modern Blog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('navbar') %>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title"><%= isEdit ? 'Edit' : 'Write New' %> Article</h1>
+            <p class="page-subtitle"><%= isEdit ? 'Update your article' : 'Share your thoughts with the world' %></p>
+        </div>
+
+        <div class="form-container">
+            <div class="card">
+                <% if (typeof error !== 'undefined' && error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                <% } %>
+
+                <form action="<%= isEdit ? '/articles/' + article.id + '/edit' : '/articles/new' %>" method="POST">
+                    <div class="form-group">
+                        <label for="title" class="form-label">Title</label>
+                        <input 
+                            type="text" 
+                            id="title" 
+                            name="title" 
+                            class="form-input" 
+                            value="<%= article ? article.title : '' %>" 
+                            required 
+                            placeholder="Enter article title..."
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content" class="form-label">Content</label>
+                        <textarea 
+                            id="content" 
+                            name="content" 
+                            class="form-textarea" 
+                            rows="15" 
+                            required 
+                            placeholder="Write your article content here..."
+                        ><%= article ? article.content : '' %></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">
+                            <%= isEdit ? 'Update Article' : 'Publish Article' %>
+                        </button>
+                        <a href="/articles/my-articles" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
