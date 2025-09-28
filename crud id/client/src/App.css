@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; background:#f4f4f4; padding:20px; }
+.add-parent-form, .node-card { background:#fff; padding:15px; margin:10px 0; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.add-parent-form input, .node-card input { padding:6px 10px; margin:5px; border-radius:6px; border:1px solid #ccc; width:180px;}
+.add-parent-form button, .node-card button { padding:6px 12px; margin:3px; border:none; border-radius:6px; cursor:pointer;}
+.add-parent-form button { background:#007bff; color:#fff;}
+.add-parent-form button:hover{ background:#0056b3;}
+.node-card button:nth-child(1){ background:#28a745; color:#fff;}
+.node-card button:nth-child(2){ background:#ffc107; color:#000;}
+.node-card button:nth-child(3){ background:#dc3545; color:#fff;}
+.node-card button:hover{ opacity:0.8;}
